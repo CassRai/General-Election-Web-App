@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Voter Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+<div class="container-fluid p-5 rounded bg-dark bg-gradient text-white text-center">
+  <h1 class="display-3">GEVS - Voter Registration</h1>
+  <p">Please create an account</p>
+</div>
+<div class="container mt-3">
+ <form class="form-signup was-validated" method="post" id="signup-form">
+  <div class="form-group">
+    <label for="email">Voter Id:</label>
+    <input type="email" class="form-control" placeholder="Email Address" name="email_add" id="email_add"required />
+    <div class="invalid-feedback">Please fill out this field.</div>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  
+  <div class="form-group row mt-2">
+    <label for="name">Name:</label>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="First name" name="f_name", id="f_name" required/>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Last name" name="l_name", id="l_name" required />
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+  </div>
+
+  <div class="form-group mt-2">
+    <label for="dob">Date of Birth:</label>
+    <input type="date" class="form-control" name="dob" id="dob" required/>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+
+  <div class="form-group mt-3">
+    <label for="constitutency">Constitutency:</label>
+    <select class="form-select" required>
+      <option>Shangri-la-Town</option>
+      <option>Northern-Kunlun-Mountain</option>
+      <option>Western-Shangri-la</option>
+      <option>Naboo-Vallery</option>
+      <option>New-Felucia</option>
+    </select>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+
+  <div class="form-group mt-2">
+    <label for="uvc">UVC:</label>
+    <input type="text" class="form-control" placeholder="Unique Voter Code" name="uvc" id="uvc" required/>
+    <div class="invalid-feedback">Please fill out this field.</div>
+    <small id="uvcHelp" class="form-text text-muted"> Your 8-digit Voter Code should be on your Poll Card.</small>
+  </div>
+
+  <div class="form-group mt-2">
+    <label for="password">Password:</label>
+    <div class="invalid-feedback">Please fill out this field.</div>
+    <input type="password" class="form-control" placeholder="Password" name="password" id="password" required/>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>	 
+	<div class="form-group mt-2">
+    <label for="repeat">Confirm Password:</label>
+	  <input type="password" class="form-control" placeholder="Re-enter password here" name="repeat" id="repeat" required />
+    <div class="invalid-feedback">Please fill out this field.</div>
+	</div>   
+  <div class="form-group mt-2 pb-2">
+    <button type="submit" class="btn btn-primary" name="submit" id="submit">
+      <i class="bi bi-box-arrow-in-right"></i> &nbsp; Sign In
+   </button> 
+  </div>  
+       <div class="alert alert-success mt-1" id="success" style="display: none">
+        Registration successful!
+       </div> 
+       <div class="alert alert-danger mt-1" id="error" style="display: none">
+        Password does not match the confirmed password
+       </div>
+  </form>
+</div>
+
+<script>
+
+$("#submit").click(function(event) {
+event.preventDefault();
+var successmsg=$("#success");
+var failmsg=$("#error");
+var repeatxt=$("#repeat").val();
+var passwd=$("#password").val();
+var sub_button=$("#submit");
+
+if (passwd == repeatxt) {
+  failmsg.hide();
+  successmsg.show();
+} else {
+  successmsg.hide();
+  failmsg.show();
+  sub_button.prop("disabled", true);
+  
+}
+
+});
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
