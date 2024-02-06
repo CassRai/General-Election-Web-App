@@ -1,2 +1,1 @@
- Created using SQL, java, html
- Hashing, node.js, express.js, bootstrap
+ Created using SQL, Hashing, node.js, express.js, bootstrap
